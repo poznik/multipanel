@@ -1,8 +1,10 @@
-# multipanel
+# Telemt Multipanel
 
 Панель для агрегации метрик `telemt` с нескольких серверов.
 
-Что уже есть:
+![Скриншот дашборда](image.png)
+
+### Что есть:
 - backend на `Go`;
 - один TOML-конфиг;
 - параллельный опрос нескольких `telemt` API;
@@ -19,13 +21,6 @@
 ```bash
 sudo mkdir -p /opt/multipanel
 sudo chown -R "$(id -un)":"$(id -gn)" /opt/multipanel
-```
-
-Здесь будет использован текущий Linux-пользователь, под которым вы выполняете команды.
-Например, если вы вошли в систему как `ubuntu`, команда станет такой:
-
-```bash
-sudo chown -R ubuntu:ubuntu /opt/multipanel
 ```
 
 2. Скачать репозиторий:
@@ -68,7 +63,8 @@ cp config.example.toml config.toml
 go run . --config config.toml
 ```
 
-Панель будет доступна на `http://127.0.0.1:8082`.
+Панель будет доступна на `http://0.0.0.0:8082`.
+Панель не имеет авторизации или иной защиты. Защитите порт средствами UFW/иного брандмауэра.
 
 
 ## Конфиг
@@ -112,4 +108,4 @@ auth_header = ""
 - статус доступности API и ошибки отдельных endpoint-запросов.
 
 Примечание:
-- `Total traffic` в текущей debug-версии считается по пользовательским octet counters из `/v1/users`.
+- `Total traffic` в текущей версии считается по пользовательским octet counters из `/v1/users`.
