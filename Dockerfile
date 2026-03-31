@@ -22,6 +22,6 @@ COPY config.example.toml /app/config.toml
 
 USER appuser
 
-EXPOSE 8080
+EXPOSE 8082
 
 ENTRYPOINT ["/app/multipanel", "--config", "/app/config.toml"]

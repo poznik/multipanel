@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	defaultListen          = "0.0.0.0:8080"
+	defaultListen          = "0.0.0.0:8082"
 	defaultRefreshInterval = 10 * time.Second
 	defaultRequestTimeout  = 5 * time.Second
 	defaultScheme          = "http"

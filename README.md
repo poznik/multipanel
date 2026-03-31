@@ -68,14 +68,14 @@ cp config.example.toml config.toml
 go run . --config config.toml
 ```
 
-Панель будет доступна на `http://127.0.0.1:8080`.
+Панель будет доступна на `http://127.0.0.1:8082`.
 
 
 ## Конфиг
 
 ```toml
 [server]
-listen = "0.0.0.0:8080"
+listen = "0.0.0.0:8082"
 refresh_interval = "10s"
 request_timeout = "5s"
 
