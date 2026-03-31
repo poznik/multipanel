@@ -1,0 +1,21 @@
+[server]
+listen = "0.0.0.0:8080"
+refresh_interval = "10s"
+request_timeout = "5s"
+
+[telemt]
+allow_insecure_tls = false
+
+[[telemt.endpoints]]
+name = "local-a"
+scheme = "http"
+address = "127.0.0.1"
+port = 2398
+auth_header = ""
+
+[[telemt.endpoints]]
+name = "local-b"
+scheme = "http"
+address = "127.0.0.1"
+port = 3398
+auth_header = ""

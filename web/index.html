@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>multipanel</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <h1>Telemt multipanel</h1>
+        </div>
+        <div class="actions">
+          <span id="last-updated" class="muted">ожидание первого snapshot</span>
+          <button id="help-toggle" class="button button--toggle" type="button" aria-pressed="true">Help</button>
+          <button id="refresh-button" class="button" type="button">Refresh</button>
+        </div>
+      </header>
+
+      <nav class="view-nav" aria-label="panel pages">
+        <button class="view-tab is-active" type="button" data-view-trigger="overview">Overview</button>
+        <button class="view-tab" type="button" data-view-trigger="health">Health</button>
+      </nav>
+
+      <section id="warnings" class="warnings"></section>
+
+      <section class="view view--active" data-view="overview">
+        <section id="cards" class="cards"></section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">servers</p>
+              <h2>debug summary</h2>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="grid-table" id="servers-table">
+              <thead>
+                <tr>
+                  <th>Server</th>
+                  <th>API</th>
+                  <th>Uptime</th>
+                  <th>Conn</th>
+                  <th>Bad</th>
+                  <th>Active IPs</th>
+                  <th>Traffic</th>
+                  <th>Users Conn</th>
+                  <th>Users IPs</th>
+                  <th>Mode</th>
+                  <th>Status</th>
+                  <th>Debug</th>
+                </tr>
+              </thead>
+              <tbody id="servers-table-body">
+                <tr>
+                  <td colspan="12" class="empty">данные ещё не загружены</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">quality</p>
+              <h2>datacenter health</h2>
+            </div>
+          </div>
+          <div id="datacenters"></div>
+        </section>
+      </section>
+
+      <section class="view" data-view="health">
+        <section id="health-cards" class="cards cards--health"></section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">runtime</p>
+              <h2>admission and startup</h2>
+            </div>
+          </div>
+          <div id="runtime-health" class="health-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">transport</p>
+              <h2>upstream and network</h2>
+            </div>
+          </div>
+          <div id="transport-health" class="health-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">writers</p>
+              <h2>coverage and pool</h2>
+            </div>
+          </div>
+          <div id="writers-health" class="health-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">users</p>
+              <h2>activity and concentration</h2>
+            </div>
+          </div>
+          <div id="users-health" class="health-grid"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">reliability</p>
+              <h2>drops and diagnostics</h2>
+            </div>
+          </div>
+          <div id="reliability-health" class="health-grid"></div>
+        </section>
+      </section>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
